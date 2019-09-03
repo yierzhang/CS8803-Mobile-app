@@ -29,7 +29,7 @@ const NavigationAuth = () => (
       <Link to={ROUTES.ADMIN}>Admin</Link>
     </li>
     <li>
-        <Link to={ROUTES.TODO}>TO_DO</Link>
+        <Link to={ROUTES.TODO}>TO DO List</Link>
     </li>
     <li>
       <SignOutButton />
