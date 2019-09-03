@@ -1,15 +1,16 @@
 import React from 'react';
 import 'semantic-ui/dist/semantic.min.css';
 import { Button } from 'semantic-ui-react';
+import {withAuthorization} from "../Session";
 
-export default class Todo extends React.Component {
+class Todo extends React.Component {
     
     constructor(props) {
         super(props);
         this.state = {
             items: [],
-            text : ''
-        }
+            text : '',
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -25,7 +26,7 @@ export default class Todo extends React.Component {
         const newItem = {
             id: Date.now(),
             text: this.state.text,
-        }
+        };
         this.setState({
             items: this.state.items.concat(newItem),
             text: ''
@@ -77,3 +78,6 @@ export default class Todo extends React.Component {
     }
 }
 
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(Todo);
